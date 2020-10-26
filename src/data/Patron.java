@@ -87,7 +87,21 @@ public class Patron {
         this.vectorC = vectorC;
     }
     
-    
-    
-    
+    public String mostrarVector()
+    {
+        String vector = "";
+        for(int x =0; x<vectorC.length; x++)
+        {
+            if(x == 0)
+            {
+                vector = ""+ vectorC[x];
+            }
+            else
+            {
+                vector = vector +  "," + vectorC[x];
+            }
+            
+        }
+        return vector;
+    }
 }

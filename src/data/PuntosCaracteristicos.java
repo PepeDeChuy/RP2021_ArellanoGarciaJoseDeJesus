@@ -5,6 +5,7 @@
  */
 package data;
 
+import java.sql.Struct;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +14,7 @@ import java.util.ArrayList;
  */
 public class PuntosCaracteristicos
 {   
+          
     
     public static ArrayList<Patron> calcular(ArrayList<Patron> instancias2)
     {
@@ -22,11 +24,7 @@ public class PuntosCaracteristicos
         double[] sumaCaracteristicas;
         
         
-        sumaCaracteristicas = new double[instancias.get(0).getcarac()];
-        for(int h = 0; h<instancias.get(0).getcarac(); h++)//metodo
-        {
-            sumaCaracteristicas[h] = 0;
-        }   
+        sumaCaracteristicas = new double[instancias.get(0).getcarac()];   
         
         String claseActual = instancias.get(0).getClase();
         //String subclaseActual = instancias.get(0).getClase();
@@ -62,7 +60,6 @@ public class PuntosCaracteristicos
         
         
         patronesCaracteristicos.add(patronCaracteristico(sumaCaracteristicas,claseActual,numPatrones));
-        System.out.println();
         return patronesCaracteristicos;     
     }
     
@@ -79,34 +76,5 @@ public class PuntosCaracteristicos
     }
     
     
-    public static double calcularDistancia(ArrayList<Patron> instancias2, Patron p)
-    {
-        ArrayList<Patron> patronesCaracteristicos = calcular(instancias2);
-        
-        double[] distancias = new double[patronesCaracteristicos.size()];
-        for(int x=0; x< patronesCaracteristicos.size(); x++)
-        {
-            distancias[x] = p.calcularDistancia(patronesCaracteristicos.get(x));
-        }
-        distancias = burbuja(distancias);
-        
-        return distancias[distancias.length-1];
-    }
     
-    public static double[] burbuja(double[] arreglo)
-    {
-       for(int i = 0; i < arreglo.length - 1; i++)
-        {
-            for(int j = 0; j < arreglo.length - 1; j++)
-            {
-                if (arreglo[j] < arreglo[j + 1])
-                {
-                    double tmp = arreglo[j+1];
-                    arreglo[j+1] = arreglo[j];
-                    arreglo[j] = tmp;
-                }
-            }
-        }
-      return arreglo;
-    }
 }
